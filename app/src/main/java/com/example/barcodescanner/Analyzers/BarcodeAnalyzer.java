@@ -28,10 +28,10 @@ import java.util.List;
 
 public class BarcodeAnalyzer extends ViewModel implements ImageAnalysis.Analyzer, LifecycleObserver {
     private BarcodeScanner scanner ;
-    private MutableLiveData<String> barcode;
+    private MutableLiveData<String> mbarcodes;
 
     public BarcodeAnalyzer() {
-        barcode = new MutableLiveData<>();
+        mbarcodes = new MutableLiveData<>();
         scanner = BarcodeScanning.getClient( new BarcodeScannerOptions.Builder()
                 .setBarcodeFormats(Barcode.FORMAT_PDF417)
                 .build());
@@ -62,10 +62,10 @@ public class BarcodeAnalyzer extends ViewModel implements ImageAnalysis.Analyzer
                                 int valueType = barcode.getValueType();
                                 Log.i("check",rawValue+"  "+valueType);
                                 // See API reference for complete list of supported types
-
+                                mbarcodes.postValue(barcode.getRawValue() + " " + barcode.getFormat());
                                 }
 
-                           // barcode.postValue(barcodes.get(0).getRawValue() + " " + barcodes.get(0).getFormat());
+
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -87,6 +87,6 @@ public class BarcodeAnalyzer extends ViewModel implements ImageAnalysis.Analyzer
     }
 
     public LiveData<String> getbarcode() {
-        return barcode;
+        return mbarcodes;
     }
 }

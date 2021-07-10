@@ -13,69 +13,103 @@
         android:layout_marginBottom="8dp"
         android:layout_weight="0.7"
         android:importantForAccessibility="no" />
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="3dp"
+        android:minWidth="100dp"
+        android:textSize="12sp"
+        android:layout_gravity="center"
+        android:onClick="stop"
+        android:background="@drawable/button_bg"
+        android:text="@string/stop" />
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center"
-        android:gravity="center"
         android:layout_weight="0.15"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/face"
-            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="FACE DETECT" />
+            android:layout_margin="5dp"
+            android:padding="3dp"
+            android:minWidth="100dp"
+            android:textSize="12sp"
+            android:background="@drawable/button_bg"
+            android:text="@string/face_detect" />
 
         <Button
             android:id="@+id/text"
-            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TEXT DETECT" />
+            android:layout_margin="5dp"
+            android:padding="3dp"
+            android:minWidth="100dp"
+            android:textSize="12sp"
+            android:background="@drawable/button_bg"
+            android:text="@string/text_detect" />
 
         <Button
             android:id="@+id/imagelabel"
-            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="IMAGE LABEL" />
+            android:layout_margin="5dp"
+            android:padding="3dp"
+            android:minWidth="100dp"
+            android:textSize="12sp"
+            android:background="@drawable/button_bg"
+            android:text="@string/image_label" />
 
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:gravity="center"
         android:layout_gravity="center"
         android:layout_weight="0.15"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/object"
-            android:layout_margin="3dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OBJECT DETECT" />
+            android:layout_margin="3dp"
+            android:padding="3dp"
+            android:minWidth="100dp"
+            android:textSize="12sp"
+            android:background="@drawable/button_bg"
+            android:text="@string/object_detect" />
 
         <Button
             android:id="@+id/barcode"
-            android:layout_margin="3dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BARCODE DETECT" />
+            android:layout_margin="3dp"
+            android:padding="3dp"
+            android:minWidth="100dp"
+            android:textSize="12sp"
+            android:background="@drawable/button_bg"
+            android:text="@string/barcode_detect" />
 
         <Button
             android:id="@+id/selfie"
-            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SELFIE SEGMENT"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:minWidth="100dp"
             android:textSize="12sp"
-            android:padding="5dp"/>
+            android:background="@drawable/button_bg"
+            android:text="@string/selfie_segment"
+           />
 
     </LinearLayout>
 

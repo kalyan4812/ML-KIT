@@ -94,8 +94,14 @@ public class MLActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
             }
         });
-        imageLabelAnalyzer=new ViewModelProvider(this).get(ImageLabelAnalyzer.class);
+        imageLabelAnalyzer = new ViewModelProvider(this).get(ImageLabelAnalyzer.class);
         imageLabelAnalyzer.getbarcode().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+            }
+        });
+        objectDetectionAnalyzer.getObjectDetectLiveData().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
                 Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
@@ -239,5 +245,9 @@ public class MLActivity extends AppCompatActivity {
                 this.finish();
             }
         }
+    }
+
+    public void stop(View view) {
+        imageAnalysis.clearAnalyzer();
     }
 }

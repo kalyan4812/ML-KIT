@@ -8,6 +8,8 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageProxy;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -29,8 +31,10 @@ public class ObjectDetectionAnalyzer implements ImageAnalysis.Analyzer {
                     .enableClassification()  // Optional
                     .build();
     ObjectDetector objectDetector;
+    MutableLiveData<String> mutableLiveData;
     public ObjectDetectionAnalyzer(){
         objectDetector = ObjectDetection.getClient(options);
+        mutableLiveData=new MutableLiveData<>();
     }
     @Override
     public void analyze(@NonNull ImageProxy image) {
@@ -49,6 +53,7 @@ public class ObjectDetectionAnalyzer implements ImageAnalysis.Analyzer {
                                         for (DetectedObject.Label label : detectedObject.getLabels()) {
 
                                             Log.i("object",label.getText().trim());
+                                            mutableLiveData.postValue(label.getText().trim());
                                         }
                                     }
                                 }
@@ -69,5 +74,9 @@ public class ObjectDetectionAnalyzer implements ImageAnalysis.Analyzer {
             });
         }
         image.close();
+    }
+
+    public LiveData<String> getObjectDetectLiveData() {
+        return mutableLiveData;
     }
 }

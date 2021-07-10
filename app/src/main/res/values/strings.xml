@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ML KIT </string>
+    <string name="face_detect">FACE DETECT</string>
+    <string name="selfie_segment">SELFIE SEGMENT</string>
+    <string name="barcode_detect">BARCODE DETECT</string>
+    <string name="object_detect">OBJECT DETECT</string>
+    <string name="image_label">IMAGE LABEL</string>
+    <string name="text_detect">TEXT DETECT</string>
+    <string name="stop">Stop</string>
 </resources>
